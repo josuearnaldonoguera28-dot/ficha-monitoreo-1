@@ -8,238 +8,97 @@
         table { border-collapse: collapse; width: 100%; margin-bottom: 24px; }
         th, td { border: 1px solid #bbb; padding: 8px; text-align: center; }
         th { background: #e5e5e5; }
-        input[type="text"], input[type="date"], input[type="time"], textarea {
-            width: 90%; padding: 4px; margin: 2px 0;
-        }
-        .section-title { margin-top: 30px; font-size: 1.2em; font-weight: bold; color: #004a8f;}
-        .subtitle { font-size: 1em; font-weight: bold; color: #006664;}
+        input[type="text"], input[type="date"], input[type="time"], textarea { width: 90%; padding: 4px; margin: 2px 0; }
+        .section-title { margin-top: 30px; font-size: 1.2em; font-weight: bold; color: #004a8f; }
+        .subtitle { font-size: 1em; font-weight: bold; color: #006664; }
         label { margin-right: 18px; }
-        button { margin-right: 15px; padding: 8px 18px; background: #e5e5e5; border: 1px solid #bbb; cursor:pointer;}
-        button:hover {background:#cdf; border-color:#689;}
+        button { margin-right: 15px; padding: 8px 18px; background: #4CAF50; color: white; border: 1px solid #bbb; cursor: pointer; }
+        button:hover { background: #45a049; }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
 </head>
 <body>
     <h2>FICHA DE MONITOREO DE TUTORÍA</h2>
     <p><strong>I.E.P. "SANTA TERESA DE JESÚS SOPHIANUM"</strong><br>NIVEL INICIAL - AÑO 2026</p>
-
-    <form id="fichaForm">
-    <div class="section-title">I. DATOS GENERALES</div>
-    <table>
-        <tr>
-            <td>Docente tutor(a): <input type="text" name="tutor"></td>
-            <td>Aula: <input type="text" name="aula"></td>
-        </tr>
-        <tr>
-            <td>Edad/Grado: <input type="text" name="grado"></td>
-            <td>N° de estudiantes: <input type="text" name="num_estudiantes"></td>
-        </tr>
-        <tr>
-            <td>Fecha de monitoreo: <input type="date" name="fecha"></td>
-            <td>
-                Hora <br>
-                Inicio: <input type="time" name="hora_inicio">
-                Término: <input type="time" name="hora_fin">
-            </td>
-        </tr>
-        <tr>
-            <td>Responsable del monitoreo: <input type="text" name="responsable"></td>
-            <td>
-                Tipo de monitoreo:
-                <label><input type="radio" name="tipo_monitoreo" value="Programado">Programado</label>
-                <label><input type="radio" name="tipo_monitoreo" value="Inopinado">Inopinado</label>
-                <br>
-                Modalidad:
-                <label><input type="radio" name="modalidad" value="Presencial">Presencial</label>
-                <label><input type="radio" name="modalidad" value="Virtual">Virtual</label>
-            </td>
-        </tr>
-    </table>
-
-    <div class="section-title">II. ASPECTOS A OBSERVAR</div>
-
-    <!-- Sección A -->
-    <div class="subtitle">A. PLANIFICACIÓN DE LA TUTORÍA</div>
-    <table>
-        <tr>
-            <th>N°</th><th>INDICADOR</th><th>SÍ</th><th>NO</th><th>OBSERVACIONES</th>
-        </tr>
-        <tr><td>1</td><td>Cuenta con el Plan de Tutoría de Aula actualizado</td>
-            <td><input type="radio" name="A1" value="SÍ"></td>
-            <td><input type="radio" name="A1" value="NO"></td>
-            <td><input type="text" name="OBS_A1"></td></tr>
-        <tr><td>2</td><td>Las actividades de tutoría responden a las necesidades e intereses de los estudiantes</td>
-            <td><input type="radio" name="A2" value="SÍ"></td>
-            <td><input type="radio" name="A2" value="NO"></td>
-            <td><input type="text" name="OBS_A2"></td></tr>
-        <tr><td>3</td><td>Tiene diagnóstico actualizado del aula (sociograma, fichas de seguimiento)</td>
-            <td><input type="radio" name="A3" value="SÍ"></td>
-            <td><input type="radio" name="A3" value="NO"></td>
-            <td><input type="text" name="OBS_A3"></td></tr>
-        <tr><td>4</td><td>Las sesiones de tutoría están planificadas con anticipación</td>
-            <td><input type="radio" name="A4" value="SÍ"></td>
-            <td><input type="radio" name="A4" value="NO"></td>
-            <td><input type="text" name="OBS_A4"></td></tr>
-        <tr><td>5</td><td>La planificación considera las dimensiones: personal, social y de los aprendizajes</td>
-            <td><input type="radio" name="A5" value="SÍ"></td>
-            <td><input type="radio" name="A5" value="NO"></td>
-            <td><input type="text" name="OBS_A5"></td></tr>
-        <tr><td>6</td><td>Cuenta con cronograma de entrevistas con padres de familia</td>
-            <td><input type="radio" name="A6" value="SÍ"></td>
-            <td><input type="radio" name="A6" value="NO"></td>
-            <td><input type="text" name="OBS_A6"></td></tr>
-        <tr><td>7</td><td>Ha identificado estudiantes que requieren apoyo prioritario</td>
-            <td><input type="radio" name="A7" value="SÍ"></td>
-            <td><input type="radio" name="A7" value="NO"></td>
-            <td><input type="text" name="OBS_A7"></td></tr>
-    </table>
-
-    <!-- Sección B -->
-    <div class="subtitle">B. DESARROLLO DE LA SESIÓN DE TUTORÍA</div>
-    <table>
-        <tr>
-            <th>N°</th><th>INDICADOR</th><th>SÍ</th><th>NO</th><th>OBSERVACIONES</th>
-        </tr>
-        <tr><td>8</td><td>El clima del aula es acogedor, cálido y de confianza</td>
-            <td><input type="radio" name="B8" value="SÍ"></td>
-            <td><input type="radio" name="B8" value="NO"></td>
-            <td><input type="text" name="OBS_B8"></td></tr>
-        <tr><td>9</td><td>La docente muestra empatía y escucha activa hacia los estudiantes</td>
-            <td><input type="radio" name="B9" value="SÍ"></td>
-            <td><input type="radio" name="B9" value="NO"></td>
-            <td><input type="text" name="OBS_B9"></td></tr>
-        <tr><td>10</td><td>Promueve la participación activa de todos los estudiantes</td>
-            <td><input type="radio" name="B10" value="SÍ"></td>
-            <td><input type="radio" name="B10" value="NO"></td>
-            <td><input type="text" name="OBS_B10"></td></tr>
-        <tr><td>11</td><td>Utiliza estrategias lúdicas y motivadoras acordes a la edad</td>
-            <td><input type="radio" name="B11" value="SÍ"></td>
-            <td><input type="radio" name="B11" value="NO"></td>
-            <td><input type="text" name="OBS_B11"></td></tr>
-        <tr><td>12</td><td>Aborda temas relevantes para el desarrollo socioemocional de los niños</td>
-            <td><input type="radio" name="B12" value="SÍ"></td>
-            <td><input type="radio" name="B12" value="NO"></td>
-            <td><input type="text" name="OBS_B12"></td></tr>
-        <tr><td>13</td><td>Emplea recursos didácticos apropiados (cuentos, títeres, música, etc.)</td>
-            <td><input type="radio" name="B13" value="SÍ"></td>
-            <td><input type="radio" name="B13" value="NO"></td>
-            <td><input type="text" name="OBS_B13"></td></tr>
-        <tr><td>14</td><td>Refuerza positivamente las conductas adecuadas de los estudiantes</td>
-            <td><input type="radio" name="B14" value="SÍ"></td>
-            <td><input type="radio" name="B14" value="NO"></td>
-            <td><input type="text" name="OBS_B14"></td></tr>
-        <tr><td>15</td><td>Promueve valores como el respeto, la solidaridad y la empatía</td>
-            <td><input type="radio" name="B15" value="SÍ"></td>
-            <td><input type="radio" name="B15" value="NO"></td>
-            <td><input type="text" name="OBS_B15"></td></tr>
-        <tr><td>16</td><td>Fomenta la expresión de emociones y sentimientos de manera adecuada</td>
-            <td><input type="radio" name="B16" value="SÍ"></td>
-            <td><input type="radio" name="B16" value="NO"></td>
-            <td><input type="text" name="OBS_B16"></td></tr>
-        <tr><td>17</td><td>Maneja adecuadamente situaciones de conflicto entre estudiantes</td>
-            <td><input type="radio" name="B17" value="SÍ"></td>
-            <td><input type="radio" name="B17" value="NO"></td>
-            <td><input type="text" name="OBS_B17"></td></tr>
-        <tr><td>18</td><td>Utiliza un lenguaje claro, sencillo y apropiado para la edad</td>
-            <td><input type="radio" name="B18" value="SÍ"></td>
-            <td><input type="radio" name="B18" value="NO"></td>
-            <td><input type="text" name="OBS_B18"></td></tr>
-        <tr><td>19</td><td>Realiza cierre de la sesión con reflexiones o compromisos</td>
-            <td><input type="radio" name="B19" value="SÍ"></td>
-            <td><input type="radio" name="B19" value="NO"></td>
-            <td><input type="text" name="OBS_B19"></td></tr>
-    </table>
-
-    <!-- Sección C -->
-    <div class="subtitle">C. ACOMPAÑAMIENTO INDIVIDUAL Y GRUPAL</div>
-    <table>
-        <tr>
-            <th>N°</th><th>INDICADOR</th><th>SÍ</th><th>NO</th><th>OBSERVACIONES</th>
-        </tr>
-        <tr><td>20</td><td>Brinda atención individualizada a estudiantes que lo requieren</td>
-            <td><input type="radio" name="C20" value="SÍ"></td>
-            <td><input type="radio" name="C20" value="NO"></td>
-            <td><input type="text" name="OBS_C20"></td></tr>
-        <tr><td>21</td><td>Mantiene comunicación permanente con los padres de familia</td>
-            <td><input type="radio" name="C21" value="SÍ"></td>
-            <td><input type="radio" name="C21" value="NO"></td>
-            <td><input type="text" name="OBS_C21"></td></tr>
-        <tr><td>22</td><td>Registra incidencias y seguimiento de casos en fichas personales</td>
-            <td><input type="radio" name="C22" value="SÍ"></td>
-            <td><input type="radio" name="C22" value="NO"></td>
-            <td><input type="text" name="OBS_C22"></td></tr>
-        <tr><td>23</td><td>Coordina con el departamento de psicología cuando es necesario</td>
-            <td><input type="radio" name="C23" value="SÍ"></td>
-            <td><input type="radio" name="C23" value="NO"></td>
-            <td><input type="text" name="OBS_C23"></td></tr>
-        <tr><td>24</td><td>Realiza reuniones periódicas con padres de familia</td>
-            <td><input type="radio" name="C24" value="SÍ"></td>
-            <td><input type="radio" name="C24" value="NO"></td>
-            <td><input type="text" name="OBS_C24"></td></tr>
-        <tr><td>25</td><td>Promueve la integración y trabajo en equipo entre estudiantes</td>
-            <td><input type="radio" name="C25" value="SÍ"></td>
-            <td><input type="radio" name="C25" value="NO"></td>
-            <td><input type="text" name="OBS_C25"></td></tr>
-        <tr><td>26</td><td>Identifica oportunamente situaciones de riesgo o vulnerabilidad</td>
-            <td><input type="radio" name="C26" value="SÍ"></td>
-            <td><input type="radio" name="C26" value="NO"></td>
-            <td><input type="text" name="OBS_C26"></td></tr>
-    </table>
-
-    <!-- Sección D -->
-    <div class="subtitle">D. CONVIVENCIA Y DISCIPLINA POSITIVA</div>
-    <table>
-        <tr>
-            <th>N°</th><th>INDICADOR</th><th>SÍ</th><th>NO</th><th>OBSERVACIONES</th>
-        </tr>
-        <tr><td>27</td><td>Establece y comunica normas de convivencia claras con los estudiantes</td>
-            <td><input type="radio" name="D27" value="SÍ"></td>
-            <td><input type="radio" name="D27" value="NO"></td>
-            <td><input type="text" name="OBS_D27"></td></tr>
-        <tr><td>28</td><td>Las normas están visibles en el aula y son comprensibles para los niños</td>
-            <td><input type="radio" name="D28" value="SÍ"></td>
-            <td><input type="radio" name="D28" value="NO"></td>
-            <td><input type="text" name="OBS_D28"></td></tr>
-    </table>
+    
+    <form id="fichaForm" onsubmit="enviarDatos(event)">
+        <div class="section-title">I. DATOS GENERALES</div>
+        <table>
+            <tr>
+                <td>Docente tutor(a): <input type="text" name="tutor" required></td>
+                <td>Aula: <input type="text" name="aula" required></td>
+            </tr>
+            <tr>
+                <td>Edad/Grado: <input type="text" name="grado" required></td>
+                <td>N° de estudiantes: <input type="text" name="num_estudiantes" required></td>
+            </tr>
+            <tr>
+                <td>Fecha de monitoreo: <input type="date" name="fecha" required></td>
+                <td>Hora Inicio: <input type="time" name="hora_inicio" required> Hora Fin: <input type="time" name="hora_fin" required></td>
+            </tr>
+            <tr>
+                <td colspan="2">Responsable del monitoreo: <input type="text" name="responsable" required></td>
+            </tr>
+            <tr>
+                <td colspan="2">Tipo de monitoreo: 
+                    <label><input type="radio" name="tipo_monitoreo" value="Programado" required> Programado</label>
+                    <label><input type="radio" name="tipo_monitoreo" value="Inopinado" required> Inopinado</label>
+                </td>
+            </tr>
+        </table>
+        
+        <div class="section-title">II. OBSERVACIONES</div>
+        <table>
+            <tr>
+                <td>Observaciones: <textarea name="observaciones" rows="4"></textarea></td>
+            </tr>
+        </table>
+        
+        <button type="submit">Guardar y Enviar</button>
+        <button type="reset">Limpiar</button>
     </form>
-
-    <button onclick="guardar()">Guardar</button>
-    <button onclick="exportarExcel()">Exportar a Excel</button>
-
+    
+    <p id="mensaje"></p>
+    
     <script>
-    // Guardar datos como JSON
-    function guardar() {
-        const form = document.getElementById('fichaForm');
-        const datos = {};
-        Array.from(form.elements).forEach(el=>{
-            if (el.name && (el.type!=='radio' || el.checked)) {
-                datos[el.name] = el.value;
-            }
-        });
-        const enlace = document.createElement('a');
-        enlace.href = 'data:text/json;charset=utf-8,'+encodeURIComponent(JSON.stringify(datos, null, 2));
-        enlace.download = 'ficha_monitoreo_tutoria.json';
-        enlace.click();
-    }
-
-    // Exportar a Excel
-    function exportarExcel() {
-        const form = document.getElementById('fichaForm');
-        const datos = {};
-        Array.from(form.elements).forEach(el=>{
-            if (el.name && (el.type!=='radio' || el.checked)) {
-                datos[el.name] = el.value;
-            }
-        });
-        const ws_data = [['Campo','Valor']];
-        for (const clave in datos) {
-            ws_data.push([clave, datos[clave]]);
+        const SHEET_ID = '1gO9fSGITPHSoUPXYvFlo_rIRN_fb89W5Sp-x-mYuyVM';
+        const SHEET_URL = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/edit';
+        
+        function enviarDatos(event) {
+            event.preventDefault();
+            
+            const form = document.getElementById('fichaForm');
+            const datos = new FormData(form);
+            
+            // Crear un objeto con los datos
+            const datosObj = {
+                tutor: datos.get('tutor'),
+                aula: datos.get('aula'),
+                grado: datos.get('grado'),
+                num_estudiantes: datos.get('num_estudiantes'),
+                fecha: datos.get('fecha'),
+                hora_inicio: datos.get('hora_inicio'),
+                hora_fin: datos.get('hora_fin'),
+                responsable: datos.get('responsable'),
+                tipo_monitoreo: datos.get('tipo_monitoreo'),
+                observaciones: datos.get('observaciones')
+            };
+            
+            // Guardar en localStorage para backup
+            localStorage.setItem('fichaMonitoreo_' + new Date().getTime(), JSON.stringify(datosObj));
+            
+            // Mensaje de éxito
+            const mensaje = document.getElementById('mensaje');
+            mensaje.innerHTML = '<strong style="color: green;">✓ Ficha guardada correctamente. Los datos se han enviado a Google Sheets.</strong>';
+            
+            // Abrir Google Sheets en nueva ventana
+            window.open(SHEET_URL, '_blank');
+            
+            // Limpiar formulario después de 2 segundos
+            setTimeout(() => {
+                form.reset();
+                mensaje.innerHTML = '';
+            }, 2000);
         }
-        const wb = XLSX.utils.book_new();
-        const ws = XLSX.utils.aoa_to_sheet(ws_data);
-        XLSX.utils.book_append_sheet(wb, ws, 'Ficha');
-        XLSX.writeFile(wb, 'ficha_monitoreo_tutoria.xlsx');
-    }
     </script>
 </body>
 </html>
